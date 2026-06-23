@@ -27,8 +27,9 @@ export default function Home() {
             </p>
             <h1 className="font-display text-[38px] font-medium leading-tight sm:text-[54px]">
               Tu negocio,{" "}
-              <span className="underline-brand">visible</span> donde te
-              buscan.
+              <span className="underline-brand">
+                visible 
+              </span> donde te buscan.
             </h1>
             <p className="mt-6 max-w-130 text-[16px] text-ink-soft sm:text-[18px]">
               Construimos webs, posicionamiento en Google y automatización de
@@ -304,7 +305,7 @@ export default function Home() {
               <div className="mb-2.5 text-[13px] uppercase tracking-wide text-ink-soft">
                 Starter
               </div>
-              <div className="mb-1 font-display text-[34px]">USD 399</div>
+              <div className="mb-1 font-display text-[34px]">USD 299</div>
               <p className="mb-5.5 text-[13.5px] text-ink-soft">
                 Para arrancar con presencia online real.
               </p>
@@ -341,7 +342,7 @@ export default function Home() {
               <div className="mb-2.5 text-[13px] uppercase tracking-wide text-ink-soft">
                 Growth
               </div>
-              <div className="mb-1 font-display text-[34px]">USD 899</div>
+              <div className="mb-1 font-display text-[34px]">USD 499</div>
               <p className="mb-5.5 text-[13.5px] text-ink-soft">
                 La opción completa para crecer en serio.
               </p>
@@ -379,7 +380,7 @@ export default function Home() {
               <div className="mb-2.5 text-[13px] uppercase tracking-wide text-ink-soft">
                 Premium
               </div>
-              <div className="mb-1 font-display text-[34px]">USD 1.800</div>
+              <div className="mb-1 font-display text-[34px]">USD 1.199</div>
               <p className="mb-5.5 text-[13.5px] text-ink-soft">
                 Para negocios que quieren escalar con pauta.
               </p>
