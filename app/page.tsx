@@ -365,7 +365,7 @@ export default function Home() {
                 </li>
                 <li className="relative pl-5">
                   <span className="absolute left-0 text-olive">—</span>
-                  Entrega en 14 días
+                  Entrega en 15 días
                 </li>
               </ul>
               <Link
