@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { getWhatsAppUrl } from "@/lib/constants";
+import Logo from "@/components/Logo";
 
 export default function Navbar({ active }: { active?: string }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -17,8 +18,8 @@ export default function Navbar({ active }: { active?: string }) {
     return (
         <header className="sticky top-0 z-50 border-b border-line bg-cream/90 backdrop-blur-md">
             <nav className="mx-auto flex max-w-270 items-center justify-between px-6 py-4">
-                <Link href="/" className="font-display text-[22px] font-semibold tracking-tight">
-                    lum<span className="text-olive">e</span>a
+                <Link href="/">
+                    <Logo />
                 </Link>
                 <div className="hidden items-center gap-8 md:flex">
                     {links.map((link) => (

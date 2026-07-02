@@ -20,16 +20,54 @@ export default async function OpengraphImage() {
             "radial-gradient(circle at 85% 15%, rgba(216,90,48,0.14), transparent 45%), radial-gradient(circle at 10% 85%, rgba(59,109,17,0.12), transparent 40%)",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            fontSize: 44,
-            fontWeight: 600,
-            color: "#23291f",
-            marginBottom: 28,
-          }}
-        >
-          lum<span style={{ color: "#3b6d11" }}>e</span>a
+        <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
+          <div
+            style={{
+              position: "relative",
+              width: 56,
+              height: 56,
+              display: "flex",
+              background: "#3b6d11",
+              borderRadius: 16,
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                left: 16,
+                top: 12,
+                width: 10,
+                height: 26,
+                borderRadius: 5,
+                background: "#fbf9f4",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                left: 16,
+                top: 30,
+                width: 22,
+                height: 10,
+                borderRadius: 5,
+                background: "#fbf9f4",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                right: 8,
+                top: 8,
+                width: 11,
+                height: 11,
+                borderRadius: "50%",
+                background: "#d85a30",
+              }}
+            />
+          </div>
+          <div style={{ display: "flex", fontSize: 44, fontWeight: 600, color: "#23291f" }}>
+            lum<span style={{ color: "#3b6d11" }}>e</span>a
+          </div>
         </div>
         <div
           style={{
@@ -52,7 +90,7 @@ export default async function OpengraphImage() {
             maxWidth: 780,
           }}
         >
-          Diseño web, SEO local y automatización de leads para negocios en Argentina.
+          Diseño web, SEO local, chatbots y automatización de leads para negocios en Argentina.
         </div>
       </div>
     ),

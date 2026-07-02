@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CTASection from "@/components/CTASection";
 import FAQ from "@/components/FAQ";
 import Link from "next/link";
@@ -458,7 +457,6 @@ export default function Home() {
 
       <CTASection />
       <Footer />
-      <WhatsAppFloat />
     </>
   );
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CTASection from "@/components/CTASection";
 import Link from "next/link";
 import { getWhatsAppUrl } from "@/lib/constants";
@@ -215,7 +214,6 @@ export default function Servicios() {
         buttonHref={getWhatsAppUrl()}
       />
       <Footer />
-      <WhatsAppFloat />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CONTACT_EMAIL, getWhatsAppUrl } from "@/lib/constants";
+import Logo from "@/components/Logo";
 
 export default function Footer() {
     return (
@@ -7,8 +8,8 @@ export default function Footer() {
             <div className="mx-auto max-w-270 px-6">
                 <div className="flex flex-wrap items-start justify-between gap-8">
                     <div>
-                        <Link href="/" className="font-display text-[22px] font-semibold">
-                            lum<span className="text-olive">e</span>a
+                        <Link href="/">
+                            <Logo />
                         </Link>
                         <p className="mt-2.5 max-w-70 text-[13.5px] text-ink-soft">
                             Webs, SEO local y automatización de leads para negocios que

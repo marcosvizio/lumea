@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { CONTACT_EMAIL, SITE_NAME, SITE_URL, WHATSAPP_NUMBER } from "@/lib/constants";
+import ChatWidget from "@/components/ChatWidget";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -19,26 +20,26 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Lumea — SEO y Posicionamiento en Google para tu Negocio Local",
+    default: "Lumea — Sitios Web, SEO y Automatización de Leads",
     template: "%s | Lumea",
   },
   description:
-    "Diseño web, SEO local y automatización de leads para restaurantes, consultorios y comercios en Argentina. Resultados en 30 días, sin vueltas técnicas.",
+    "Diseño web, SEO local, chatbots de WhatsApp y automatización de leads para restaurantes, consultorios y comercios en Argentina. Resultados en 30 días, sin vueltas técnicas.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "es_AR",
     siteName: SITE_NAME,
     url: SITE_URL,
-    title: "Lumea — SEO y Posicionamiento en Google para tu Negocio Local",
+    title: "Lumea — Sitios Web, SEO y Automatización de Leads",
     description:
-      "Diseño web, SEO local y automatización de leads para restaurantes, consultorios y comercios en Argentina. Resultados en 30 días, sin vueltas técnicas.",
+      "Diseño web, SEO local, chatbots de WhatsApp y automatización de leads para restaurantes, consultorios y comercios en Argentina. Resultados en 30 días, sin vueltas técnicas.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lumea — SEO y Posicionamiento en Google para tu Negocio Local",
+    title: "Lumea — Sitios Web, SEO y Automatización de Leads",
     description:
-      "Diseño web, SEO local y automatización de leads para restaurantes, consultorios y comercios en Argentina.",
+      "Diseño web, SEO local, chatbots de WhatsApp y automatización de leads para negocios en Argentina.",
   },
 };
 
@@ -71,6 +72,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         {children}
+        <ChatWidget />
       </body>
     </html>
   );
