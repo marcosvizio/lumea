@@ -1,16 +1,5 @@
-/*
-
- Author: Marcos Vizio
- Email: marcosfvizio@gmail.com
-
- Creation Date: 2026-06-19 19:18:00
- Last Modification Date: 2026-06-19 19:30:28
-
- Another File Header is a Visual Studio Code extension to automatically or by command insert a header to your files.
-
-*/
-
 import Link from "next/link";
+import { CONTACT_EMAIL, getWhatsAppUrl } from "@/lib/constants";
 
 export default function Footer() {
     return (
@@ -46,15 +35,15 @@ export default function Footer() {
                                 Contacto
                             </h4>
                             <a
-                                href="https://wa.me/5491164831145"
+                                href={getWhatsAppUrl()}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="mb-2.5 block text-sm"
                             >
                                 WhatsApp
                             </a>
-                            <a href="mailto:hola@lumea.com.ar" className="mb-2.5 block text-sm">
-                                hola@lumea.com.ar
+                            <a href={`mailto:${CONTACT_EMAIL}`} className="mb-2.5 block text-sm">
+                                {CONTACT_EMAIL}
                             </a>
                         </div>
                     </div>

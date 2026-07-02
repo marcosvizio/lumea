@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
+import { CONTACT_EMAIL, SITE_NAME, SITE_URL, WHATSAPP_NUMBER } from "@/lib/constants";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -16,9 +17,45 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lumea — Tu negocio, visible donde te buscan",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Lumea — SEO y Posicionamiento en Google para tu Negocio Local",
+    template: "%s | Lumea",
+  },
   description:
-    "Webs, SEO local y automatización de leads para restaurantes, consultorios y comercios. Resultados en 30 días, sin vueltas técnicas.",
+    "Diseño web, SEO local y automatización de leads para restaurantes, consultorios y comercios en Argentina. Resultados en 30 días, sin vueltas técnicas.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    siteName: SITE_NAME,
+    url: SITE_URL,
+    title: "Lumea — SEO y Posicionamiento en Google para tu Negocio Local",
+    description:
+      "Diseño web, SEO local y automatización de leads para restaurantes, consultorios y comercios en Argentina. Resultados en 30 días, sin vueltas técnicas.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lumea — SEO y Posicionamiento en Google para tu Negocio Local",
+    description:
+      "Diseño web, SEO local y automatización de leads para restaurantes, consultorios y comercios en Argentina.",
+  },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: SITE_NAME,
+  url: SITE_URL,
+  email: CONTACT_EMAIL,
+  telephone: `+${WHATSAPP_NUMBER}`,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Villa del Parque, CABA",
+    addressCountry: "AR",
+  },
+  areaServed: "AR",
+  priceRange: "USD 299-1199",
 };
 
 export default function RootLayout({
@@ -28,7 +65,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${fraunces.variable} ${inter.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

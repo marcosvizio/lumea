@@ -1,36 +1,23 @@
-/*
-
- Author: Marcos Vizio
- Email: marcosfvizio@gmail.com
-
- Creation Date: 2026-06-20 22:57:41
- Last Modification Date: 2026-06-20 23:12:32
-
- Another File Header is a Visual Studio Code extension to automatically or by command insert a header to your files.
-
-*/
-
 "use client";
 
 import { useState } from "react";
-
-const WHATSAPP_NUMBER = "5491164831145";
+import { getWhatsAppUrl } from "@/lib/constants";
 
 export default function ContactForm() {
   const [nombre, setNombre] = useState("");
   const [telefono, setTelefono] = useState("");
   const [rubro, setRubro] = useState("");
   const [mensaje, setMensaje] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setIsSubmitting(true);
     const texto = `Hola! Soy ${nombre} (${rubro}). ${
       mensaje ? mensaje : "Quiero pedir mi diagnóstico gratuito."
     } Mi WhatsApp: ${telefono}`;
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`,
-      "_blank"
-    );
+    window.open(getWhatsAppUrl(texto), "_blank");
+    setTimeout(() => setIsSubmitting(false), 1200);
   }
 
   return (
@@ -107,9 +94,10 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="w-full rounded-md bg-olive py-3.5 text-sm font-medium text-cream transition-colors hover:bg-olive-deep active:scale-[0.98]"
+        disabled={isSubmitting}
+        className="w-full rounded-md bg-olive py-3.5 text-sm font-medium text-cream transition-colors hover:bg-olive-deep active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
       >
-        Pedir diagnóstico gratuito
+        {isSubmitting ? "Abriendo WhatsApp..." : "Pedir diagnóstico gratuito"}
       </button>
       <p className="mt-3.5 text-center text-xs text-ink-soft">
         Te contactamos por WhatsApp en menos de 24 horas hábiles.

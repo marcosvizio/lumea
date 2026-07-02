@@ -1,21 +1,9 @@
-/*
-
- Author: Marcos Vizio
- Email: marcosfvizio@gmail.com
-
- Creation Date: 2026-06-19 19:29:03
- Last Modification Date: 2026-06-19 19:29:55
-
- Another File Header is a Visual Studio Code extension to automatically or by command insert a header to your files.
-
-*/
-
-const WHATSAPP_NUMBER = "5491164831145";
+import { getWhatsAppUrl } from "@/lib/constants";
 
 export default function WhatsAppFloat() {
     return (
         <a
-        href={`https://wa.me/${WHATSAPP_NUMBER}`}
+        href={getWhatsAppUrl()}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Escribinos por WhatsApp"

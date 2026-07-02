@@ -1,45 +1,49 @@
-/*
-
- Author: Marcos Vizio
- Email: marcosfvizio@gmail.com
-
- Creation Date: 2026-06-20 22:38:23
- Last Modification Date: 2026-06-20 22:51:11
-
- Another File Header is a Visual Studio Code extension to automatically or by command insert a header to your files.
-
-*/
-
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CTASection from "@/components/CTASection";
 import Link from "next/link";
+import { getWhatsAppUrl } from "@/lib/constants";
 
-const servicios = [
+export const metadata: Metadata = {
+  title: "Servicios de SEO, Diseño Web y Automatización de Leads | Lumea",
+  description:
+    "Diseño web, posicionamiento local en Google (SEO) y automatización de leads por WhatsApp para restaurantes, consultorios y comercios. Planes desde USD 299.",
+  alternates: { canonical: "/servicios" },
+};
+
+type Servicio = {
+  index: string;
+  title: string;
+  body: string;
+  tags: string[];
+  includedIn?: string[];
+  price?: string;
+  unit?: string;
+};
+
+const servicios: Servicio[] = [
   {
     index: "01",
     title: "Web profesional",
     body: "Tu sitio bien construido, rápido y con todo lo necesario para convertir visitas en consultas: formulario, WhatsApp directo y diseño pensado para tu rubro.",
-    tags: ["WordPress o desarrollo a medida", "Responsive", "Hasta 8 páginas"],
-    price: "USD 250",
-    unit: "/ proyecto",
+    tags: ["Desarrollo a medida", "Responsive", "Hasta 8 páginas"],
+    includedIn: ["Starter", "Growth", "Premium"],
   },
   {
     index: "02",
     title: "Posicionamiento local (SEO)",
     body: "Optimizamos tu Google Business Profile y la estructura de tu web para que aparezcas cuando alguien busca tu rubro en tu zona. Sin esto, una web linda no sirve de mucho.",
     tags: ["Google Business", "Schema markup", "Gestión de reseñas"],
-    price: "USD 150",
-    unit: "/ mes",
+    includedIn: ["Growth", "Premium"],
   },
   {
     index: "03",
     title: "Automatización de leads",
     body: "Cada consulta del formulario llega directo a tu WhatsApp o email, sin que tengas que estar revisando la web todo el día. Configuramos también un registro simple de cada contacto.",
     tags: ["Zapier / n8n", "WhatsApp Business", "Notion o planilla"],
-    price: "USD 200",
-    unit: "setup + USD 50/mes",
+    includedIn: ["Growth", "Premium"],
   },
   {
     index: "04",
@@ -63,12 +67,17 @@ export default function Servicios() {
             Servicios
           </p>
           <h1 className="max-w-170 font-display text-[32px] font-medium sm:text-[46px]">
-            Lo que hacemos,{" "}
+            SEO, diseño web y automatización,{" "}
             <span className="underline-brand">explicado sin vueltas</span>.
           </h1>
           <p className="mt-4.5 max-w-140 text-[17px] text-ink-soft">
-            Cinco servicios concretos, pensados para negocios chicos que
-            necesitan resultados, no jerga técnica.
+            Cuatro servicios concretos, pensados para negocios chicos que
+            necesitan resultados, no jerga técnica. Todos se contratan como
+            parte de un plan —{" "}
+            <Link href="/#precios" className="font-medium text-olive-deep hover:underline">
+              mirá precios y qué incluye cada uno
+            </Link>
+            .
           </p>
         </div>
       </section>
@@ -102,21 +111,47 @@ export default function Servicios() {
                 </div>
               </div>
               <div className="rounded-[10px] border border-line bg-white p-5.5 text-left">
-                <div className="mb-1.5 text-xs uppercase tracking-wide text-ink-soft">
-                  Desde
-                </div>
-                <div className="mb-3.5 font-display text-2xl">
-                  {s.price}{" "}
-                  <span className="font-sans text-xs font-normal text-ink-soft">
-                    {s.unit}
-                  </span>
-                </div>
-                <Link
-                  href="/contacto"
-                  className="text-sm font-medium text-olive-deep hover:underline"
-                >
-                  Consultar →
-                </Link>
+                {s.includedIn ? (
+                  <>
+                    <div className="mb-1.5 text-xs uppercase tracking-wide text-ink-soft">
+                      Incluido en
+                    </div>
+                    <div className="mb-3.5 flex flex-wrap gap-1.5">
+                      {s.includedIn.map((plan) => (
+                        <span
+                          key={plan}
+                          className="rounded-full bg-cream-deep px-2.5 py-1 font-display text-sm"
+                        >
+                          {plan}
+                        </span>
+                      ))}
+                    </div>
+                    <Link
+                      href="/#precios"
+                      className="text-sm font-medium text-olive-deep hover:underline"
+                    >
+                      Ver precios de los planes →
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <div className="mb-1.5 text-xs uppercase tracking-wide text-ink-soft">
+                      Servicio adicional, desde
+                    </div>
+                    <div className="mb-3.5 font-display text-2xl">
+                      {s.price}{" "}
+                      <span className="font-sans text-xs font-normal text-ink-soft">
+                        {s.unit}
+                      </span>
+                    </div>
+                    <Link
+                      href="/contacto"
+                      className="text-sm font-medium text-olive-deep hover:underline"
+                    >
+                      Consultar →
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           ))}
@@ -177,7 +212,7 @@ export default function Servicios() {
         title="¿Cuál de estos servicios necesitás?"
         subtitle="Contanos tu situación y te decimos qué te conviene empezar primero."
         buttonLabel="Hablemos por WhatsApp"
-        buttonHref="https://wa.me/5491164831145"
+        buttonHref={getWhatsAppUrl()}
       />
       <Footer />
       <WhatsAppFloat />

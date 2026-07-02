@@ -1,19 +1,16 @@
-/*
-
- Author: Marcos Vizio
- Email: marcosfvizio@gmail.com
-
- Creation Date: 2026-06-20 22:58:31
- Last Modification Date: 2026-06-20 22:59:33
-
- Another File Header is a Visual Studio Code extension to automatically or by command insert a header to your files.
-
-*/
-
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import ContactForm from "@/components/ContactForm";
+import { CONTACT_EMAIL, getWhatsAppUrl } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Contacto — Pedí tu diagnóstico gratis | Lumea",
+  description:
+    "Hablá con Lumea por WhatsApp o completá el formulario. Diagnóstico gratuito de 15 minutos sobre tu presencia en Google, sin compromiso. Respuesta en el día.",
+  alternates: { canonical: "/contacto" },
+};
 
 export default function Contacto() {
   return (
@@ -41,7 +38,7 @@ export default function Contacto() {
           <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_1.15fr]">
             <div>
               <a
-                href="https://wa.me/5491164831145?text=Hola!%20Quiero%20pedir%20mi%20diagn%C3%B3stico%20gratuito"
+                href={getWhatsAppUrl("Hola! Quiero pedir mi diagnóstico gratuito")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mb-5 flex items-center gap-3.5 rounded-xl bg-olive px-6 py-5.5 text-cream transition-colors hover:bg-olive-deep"
@@ -72,7 +69,7 @@ export default function Contacto() {
 
               <div className="rounded-xl border border-line bg-white p-7">
                 {[
-                  { label: "Email", value: "hola@lumea.com.ar" },
+                  { label: "Email", value: CONTACT_EMAIL },
                   {
                     label: "Zona de trabajo",
                     value: "Buenos Aires y todo el país, a distancia",

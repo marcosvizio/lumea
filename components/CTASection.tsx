@@ -1,14 +1,4 @@
-/*
-
- Author: Marcos Vizio
- Email: marcosfvizio@gmail.com
-
- Creation Date: 2026-06-19 19:32:19
- Last Modification Date: 2026-06-19 19:44:14
-
- Another File Header is a Visual Studio Code extension to automatically or by command insert a header to your files.
-
-*/
+import Link from "next/link";
 
 type CTASectionProps = {
     title?: string;
@@ -32,12 +22,23 @@ export default function CTASection({
                 <p className="mx-auto mt-4 max-w-md text-[16px] text-[#D9E3C8]">
                     {subtitle}
                 </p>
-                <a
-                    href={buttonHref}
-                    className="mt-7 inline-flex items-center justify-center rounded-md bg-cream px-6 py-3 text-sm font-medium text-olive-deep transition-colors hover:bg-white"
-                >
-                {buttonLabel}
-                </a>
+                {buttonHref.startsWith("/") ? (
+                    <Link
+                        href={buttonHref}
+                        className="mt-7 inline-flex items-center justify-center rounded-md bg-cream px-6 py-3 text-sm font-medium text-olive-deep transition-colors hover:bg-white"
+                    >
+                    {buttonLabel}
+                    </Link>
+                ) : (
+                    <a
+                        href={buttonHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-7 inline-flex items-center justify-center rounded-md bg-cream px-6 py-3 text-sm font-medium text-olive-deep transition-colors hover:bg-white"
+                    >
+                    {buttonLabel}
+                    </a>
+                )}
             </div>
         </section>
     );

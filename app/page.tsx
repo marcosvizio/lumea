@@ -4,10 +4,28 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CTASection from "@/components/CTASection";
 import FAQ from "@/components/FAQ";
 import Link from "next/link";
+import { faqs } from "@/lib/faq-data";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Navbar />
 
       {/* HERO */}
@@ -28,11 +46,11 @@ export default function Home() {
             <h1 className="font-display text-[38px] font-medium leading-tight sm:text-[54px]">
               Tu negocio,{" "}
               <span className="underline-brand">
-                visible 
+                visible en Google
               </span> donde te buscan.
             </h1>
             <p className="mt-6 max-w-130 text-[16px] text-ink-soft sm:text-[18px]">
-              Construimos webs, posicionamiento en Google y automatización de
+              Diseño web, posicionamiento en Google (SEO local) y automatización de
               leads para negocios que tienen clientes pero no tienen sistema.
               Resultados en 30 días, sin vueltas técnicas.
             </p>
@@ -77,6 +95,11 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p className="mt-3 text-[12px] text-ink-soft">
+            *Promedio de leads nuevos (WhatsApp + formulario) generados en el
+            primer mes tras el lanzamiento, medido en los primeros proyectos
+            entregados. Puede variar según rubro y zona.
+          </p>
         </div>
       </section>
 
