@@ -1,4 +1,4 @@
-export const SITE_URL = "https://lumea.com.ar";
+export const SITE_URL = "https://agencialumea.com.ar";
 export const SITE_NAME = "Lumea";
 
 export const WHATSAPP_NUMBER = "5491164831145";
